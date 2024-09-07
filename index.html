@@ -7,6 +7,7 @@
     <style>
         .NavigationBar {
             display: flex;
+            background-color: rgb(255, 255, 255);
         }
         .Logo {
             margin-left: 2em;
@@ -36,13 +37,42 @@
             flex: 1;
         }
         .signup button{
-            text-align: middle;
+            text-align: center;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-weight: bold;
             color: rgb(255, 255, 255);
             background-color: rgb(32, 109, 211);
             display: inline;
         }
+        .GetStarted{
+            margin:auto;
+        }
+        .GetStarted h2{
+            text-align: center; 
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 170%;
+            color: rgb(255, 255, 255);
+            margin-top: 2em;
+        
+            
+
+        }
+        .GetStarted img{
+            width: 100%;
+
+            
+
+            
+
+        }
+        body{
+            background-image: linear-gradient(rgba(5, 22, 97, 0.9),transparent), url("images/birds.png");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            margin: 0%;
+        }
+
         
         
     </style>
@@ -52,14 +82,21 @@
 <body>
     <div class="NavigationBar">
         <div class="Logo">
-            <img src="TrustBank Logo.png">
+            <img src="images/TrustBank Logo.png">
             <h1>TrustBank</h1>
         </div>
+        
         
         <div class = "signup">
             <button onclick="login()">Login</button>
             <button onclick="signUp()">Sign Up</button>
         </div>
+    </div>
+    <div class = "GetStarted">
+        <h2>
+            Get started with the #1 safest bank in the world. 
+        </h2>
+
     </div>
     
 </body>
