@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrustBank</title>
     <style>
+        .NavigationBar {
+            display: flex;
+        }
         .Logo {
-            margin-left: 100px;
+            margin-left: 2em;
             display: inline;
+            flex-direction: row;
+            flex: 1;
         }
         .Logo h1{
             text-align: left;
@@ -23,33 +28,37 @@
             vertical-align: middle;
         }
         .signup {
-            margin-right: 100px;
+            text-align: right;
+            margin-top: 2em;
+            margin-right: 2em;
             display: inline;
-
-
+            flex-direction: row;
+            flex: 1;
         }
         .signup button{
             text-align: middle;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
             color: rgb(255, 255, 255);
+            background-color: rgb(32, 109, 211);
             display: inline;
-
         }
         
         
     </style>
+
+    <script defer src="index.js"></script>
 </head>
 <body>
-    <div style="display: inline;">
+    <div class="NavigationBar">
         <div class="Logo">
             <img src="TrustBank Logo.png">
             <h1>TrustBank</h1>
         </div>
         
         <div class = "signup">
-            <button>
-                <h1>Sign Up</h1>
-            </button>
+            <button onclick="login()">Login</button>
+            <button onclick="signUp()">Sign Up</button>
         </div>
     </div>
     
