@@ -91,6 +91,34 @@
             margin-top: 20em;
         }
 
+        .SignUp h2 {
+            margin-bottom: 2.5em;
+            text-align: center; 
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 170%;
+            color: rgb(32, 109, 211);
+            padding-top: 2em;
+        }
+
+        .SignUp h3 {
+            margin:auto;
+            margin-bottom: 1em;
+            text-align: left;
+            width: fit-content;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 100%;
+            color: rgb(32, 109, 211);
+        }
+
+        .SignUp input {
+            margin: auto;
+            margin-bottom: 1.25em;
+            display: block;
+            border-color: rgb(32, 109, 211);
+            width: 15em;
+            font-size: 150%;
+        }
+
         body {
             background-image: linear-gradient(rgba(5, 22, 97),transparent), url("images/birds.png");
             background-attachment: fixed;
@@ -132,7 +160,19 @@
     </div>
 
     <div class="SignUp">
+        <h2 id="LoginLabel" style="display: none;">
+            Login
+        </h2>
 
+        <h2 id="SignUpLabel" style="display: block;">
+            Sign Up
+        </h2>
+
+        <h3>Username</h3>
+        <input type="text">
+
+        <h3>Password</h3>
+        <input id="Password" type="password">
     </div>
     
 </body>
