@@ -6,29 +6,36 @@
     <title>TrustBank</title>
     <style>
         .NavigationBar {
+            width: 100%;
+            top: 0;
+            position: fixed;
             display: flex;
             background-color: rgb(255, 255, 255);
         }
+
         .Logo {
             margin-left: 2em;
             display: inline;
             flex-direction: row;
             flex: 1;
         }
-        .Logo h1{
+
+        .Logo h1 {
             text-align: left;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             color: rgb(32, 109, 211);
             display: inline;
             
         }
-        .Logo img{
+
+        .Logo img {
             width: 200px;
             height: 200px;
             display: inline;
             vertical-align: middle;
         }
-        .signup {
+
+        .SignUpBar {
             text-align: right;
             margin-top: 2em;
             margin-right: 2em;
@@ -36,7 +43,8 @@
             flex-direction: row;
             flex: 1;
         }
-        .signup button{
+
+        .SignUpBar button {
             text-align: center;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-weight: bold;
@@ -44,37 +52,54 @@
             background-color: rgb(32, 109, 211);
             display: inline;
         }
-        .GetStarted{
-            margin:auto;
+
+        .GetStarted {
+            margin: auto;
+            text-align: center;
+            padding-top: 16em;
         }
-        .GetStarted h2{
+
+        .GetStarted h2 {
             text-align: center; 
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 170%;
             color: rgb(255, 255, 255);
             margin-top: 2em;
-        
-            
-
         }
-        .GetStarted img{
+
+        .GetStarted img {
             width: 100%;
-
-            
-
-            
-
         }
-        body{
-            background-image: linear-gradient(rgba(5, 22, 97, 0.9),transparent), url("images/birds.png");
+
+        .GetStarted button {
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            font-size: 1.5em;
+            color: rgb(255, 255, 255);
+            background-color: rgb(184, 174, 40);
+            border-radius: 3em;
+            width: 16em;
+            height: 6em;
+            margin-top: 1em;
+        }
+
+        .SignUp {
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            height: 50em;
+            margin-top: 20em;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(5, 22, 97),transparent), url("images/birds.png");
             background-attachment: fixed;
             background-repeat: no-repeat;
-            background-size: 100%;
+            background-size: cover;
+            background-position-y: 2em;
             margin: 0%;
         }
 
-        
-        
     </style>
 
     <script defer src="index.js"></script>
@@ -86,16 +111,27 @@
             <h1>TrustBank</h1>
         </div>
         
-        
-        <div class = "signup">
+        <div class = "SignUpBar">
             <button onclick="login()">Login</button>
             <button onclick="signUp()">Sign Up</button>
         </div>
     </div>
+
     <div class = "GetStarted">
         <h2>
             Get started with the #1 safest bank in the world. 
         </h2>
+
+        <button onclick="signUp()">
+            Register Now!
+        </button>
+
+        <h2 style="font-size: 120%; font-weight: normal;">
+            and you will have access to TrustBank's exchange currency feature.
+        </h2>
+    </div>
+
+    <div class="SignUp">
 
     </div>
     
