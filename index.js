@@ -26,6 +26,22 @@ function signUp() {
     scrollToLogin();
 }
 
-function revealPassword() {
-    passwordInput.type = "text";
+function togglePasswordVisibility(visible = null) {
+    if (visible == true) {
+        passwordInput.type = "text";
+    }
+
+    else if (visible == false) {
+        passwordInput.type = "password";
+    }
+
+    else {
+        if (passwordInput.type == "text") {
+            passwordInput.type = "password";
+        }
+
+        else {
+            passwordInput.type = "text";
+        }
+    }
 }
