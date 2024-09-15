@@ -91,7 +91,7 @@
             margin-top: 20em;
         }
 
-        .SignUp h2 {
+        .SignUp h2, .AboutUs h2, .ContactUs h2 {
             margin-bottom: 2.5em;
             text-align: center; 
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -100,7 +100,7 @@
             padding-top: 2em;
         }
 
-        .SignUp h3 {
+        .SignUp h3, .AboutUs h3, .ContactUs h3 {
             margin:auto;
             margin-bottom: 1em;
             text-align: left;
@@ -121,6 +121,33 @@
             
         }
 
+        .Footer {
+            display: flex;
+            background-color: rgb(178, 208, 235);
+            bottom: 0;
+            width: 100%;
+            height: 40em;
+        }
+
+        .AboutUs {
+            flex: 1;
+        }
+
+        .ContactUs {
+            flex: 1;
+        }
+
+        .ContactUs img {
+            width: 10em;
+            height: 10em;
+        }
+
+        .ContactUs div {
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+
         body {
             background-image: linear-gradient(rgba(5, 22, 97),transparent), url("images/birds.png");
             background-attachment: fixed;
@@ -131,6 +158,14 @@
             user-select: none;
         }
 
+        a {
+            text-align: center; 
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 120%;
+            font-weight: bold;
+            text-decoration: underline;
+            color: rgb(32, 109, 211);
+        }
     </style>
 
     <script defer src="index.js"></script>
@@ -177,11 +212,48 @@
         <h3>Password</h3>
         <div style="margin: auto; display: block; text-align: center;">
             <input id="Password" type="password" style="display: inline; width: 13.35em;"> 
-            <img onclick="togglePasswordVisibility()" id = "PasswordEye" src="images/EyeClose.png" style="width: 1.5em; height: 1.5em; margin-left: 1em; cursor: pointer;"> 
+            <img onclick="togglePasswordVisibility()" id = "PasswordEye" src="images/EyeClose.png" style="width: 1.5em; margin-left: 0.8em; cursor: pointer;"> 
+        </div>
+       
+        <div style="text-align: center;">
+            <img src="images/happy.jpg" style="height: 20em; margin-top: 3.5em; border-radius: 2em;">
+        </div>
+    </div>
 
+    <div class="Footer">
+        <div class="AboutUs">
+            <h2 style="margin-bottom: 0.5em;">
+                Developed by Moksh Patel and Vincent Tseng
+            </h2>
+
+            <h3 style="margin-bottom: 1.5em;">
+                to showcase our skills in HTML, CSS, and JavaScript.
+            </h3>
+
+            <h3>
+                ***Note: This is a mock website for our portfolios.
+            </h3>
         </div>
 
-        
+        <div class="ContactUs">
+            <h2>
+                Contact Us
+            </h2>
+
+            <div style="display: block;">
+                <div style="margin-bottom: 2em;">
+                    <a style="margin-bottom: 0.75em; display: block;">Moksh</a>
+                    <img src="images/Moksh.png">
+                    <img src="images/MokshGit.png">
+                </div>
+                
+                <div>
+                    <a style="margin-bottom: 0.75em; display: block;">Vincent</a>
+                    <img src="images/VincentTsengLinkedIn.png">
+                    <img src="images/VincentTsengGitHub.png">
+                </div>
+            </div>
+        </div>
     </div>
     
 </body>
