@@ -56,6 +56,7 @@
         .GetStarted {
             margin: auto;
             text-align: center;
+            padding: 4em;
             padding-top: 16em;
         }
 
@@ -79,7 +80,8 @@
             color: rgb(255, 255, 255);
             background-color: rgb(184, 174, 40);
             border-radius: 3em;
-            width: 16em;
+            max-width: 16em;
+            width: 100%;
             height: 6em;
             margin-top: 1em;
         }
@@ -115,7 +117,8 @@
             margin-bottom: 1.25em;
             display: block;
             border-color: rgb(32, 109, 211);
-            width: 15em;
+            max-width: 15em;
+            width: 80%;
             font-size: 150%;
             text-align: center;
             
@@ -126,7 +129,8 @@
             background-color: rgb(178, 208, 235);
             bottom: 0;
             width: 100%;
-            height: 40em;
+            height: fit-content;
+            padding-bottom: 5em;
         }
 
         .AboutUs {
@@ -161,7 +165,7 @@
         a {
             text-align: center; 
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 120%;
+            font-size: 100%;
             font-weight: bold;
             text-decoration: underline;
             color: rgb(32, 109, 211);
@@ -211,8 +215,8 @@
 
         <h3>Password</h3>
         <div style="margin: auto; display: block; text-align: center;">
-            <input id="Password" type="password" style="display: inline; width: 13.35em;"> 
-            <img onclick="togglePasswordVisibility()" id = "PasswordEye" src="images/EyeClose.png" style="width: 1.5em; margin-left: 0.8em; cursor: pointer;"> 
+            <input id="Password" type="password" style="display: inline; max-width: 12.85em;"> 
+            <img onclick="togglePasswordVisibility()" id = "PasswordEye" src="images/EyeClose.png" style="width: 2.5em; margin-left: 0.4em; cursor: pointer;"> 
         </div>
        
         <div style="text-align: center;">
@@ -221,36 +225,56 @@
     </div>
 
     <div class="Footer">
-        <div class="AboutUs">
+        <div class="AboutUs" style="padding: 2em; padding-top: 0;">
             <h2 style="margin-bottom: 0.5em;">
                 Developed by Moksh Patel and Vincent Tseng
             </h2>
 
-            <h3 style="margin-bottom: 1.5em;">
+            <h3 style="margin-bottom: 1.5em; text-align: center;">
                 to showcase our skills in HTML, CSS, and JavaScript.
             </h3>
 
-            <h3>
-                ***Note: This is a mock website for our portfolios.
+            <h3 style="text-align: center;">
+                ***Note: This is a mock website for our portfolios. This is NOT a real bank website.
             </h3>
         </div>
 
         <div class="ContactUs">
-            <h2>
+            <h2 style="margin-bottom: 0em;">
                 Contact Us
             </h2>
 
-            <div style="display: block;">
-                <div style="margin-bottom: 2em;">
-                    <a style="margin-bottom: 0.75em; display: block;">Moksh</a>
-                    <img src="images/Moksh.png">
-                    <img src="images/MokshGit.png">
+            <div style="display: flex; flex-wrap: wrap;">
+                <div style="flex: 1; margin-top: 3em;">
+                    <a style="margin-bottom: 1.5em; text-decoration: none; font-size: 135%; display: block;">- Moksh -</a>
+                    
+                    <div style="display: flex; flex-wrap: wrap;">
+                        <div style="flex: 1; margin-bottom: 2em;">
+                            <img src="images/Moksh.png" style="display: inline;">
+                            <a style="display: block; margin-top: 0.5em;">LinkedIn</a>
+                        </div>
+                        
+                        <div style="flex: 1; margin-bottom: 2em;">
+                            <img src="images/MokshGit.png" style="display: inline;">
+                            <a style="display: block; margin-top: 0.5em;">GitHub</a>
+                        </div>
+                    </div>
                 </div>
                 
-                <div>
-                    <a style="margin-bottom: 0.75em; display: block;">Vincent</a>
-                    <img src="images/VincentTsengLinkedIn.png">
-                    <img src="images/VincentTsengGitHub.png">
+                <div style="flex: 1; margin-top: 3em;">
+                    <a style="margin-bottom: 1.5em; text-decoration: none; font-size: 135%; display: block;">- Vincent -</a>
+                    
+                    <div style="display: flex; flex-wrap: wrap;">
+                        <div style="flex: 1; margin-bottom: 2em;">
+                            <img src="images/VincentTsengLinkedIn.png" style="display: inline;">
+                            <a style="display: block; margin-top: 0.5em;">LinkedIn</a>
+                        </div>
+                        
+                        <div style="flex: 1; margin-bottom: 2em;">
+                            <img src="images/VincentTsengGitHub.png" style="display: inline;">
+                            <a style="display: block; margin-top: 0.5em;">GitHub</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
