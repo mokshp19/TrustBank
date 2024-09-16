@@ -4,6 +4,12 @@ const passwordInput = document.getElementById("Password");
 const loginScrollDestinationY = 650;
 const passwordEye = document.getElementById("PasswordEye"); 
 
+ 
+let accounts = [{Username : "Admin", Password : "password"}]
+
+
+
+
 
 function scrollToLogin() {
     // if (document.documentElement.scrollTop <= 650) {
@@ -26,7 +32,7 @@ function login() {
 
 function signUp() {
     scrollToLogin();
-}
+} 
 
 function togglePasswordVisibility(visible = null) {
     if (visible == true) {
@@ -50,4 +56,10 @@ function togglePasswordVisibility(visible = null) {
             passwordEye.src = "images/EyesOpen.png";
         }
     }
+}
+
+function createAccount(username, password){
+    accounts.push({Username : username, Password : password})
+    localStorage.setItem("Accounts", JSON.stringify(accounts))
+
 }
