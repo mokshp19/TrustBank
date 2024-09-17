@@ -16,8 +16,8 @@
         </div>
         
         <div class = "SignUpBar">
-            <button onclick="login()">Login</button>
-            <button onclick="signUp()">Sign Up</button>
+            <button onclick="scrollToLogin(0)">Login</button>
+            <button onclick="scrollToLogin(1)">Sign Up</button>
         </div>
     </div>
 
@@ -26,7 +26,7 @@
             Get started with the #1 safest bank in the world. 
         </h2>
 
-        <button onclick="signUp()">
+        <button onclick="scrollToLogin(1)">
             Register Now!
         </button>
 
@@ -36,16 +36,26 @@
     </div>
 
     <div class="SignUp">
-        <h2 id="LoginLabel" style="display: none;">
+        <h2 id="LoginLabel" style="display: block;">
             Login
         </h2>
 
-        <h2 id="SignUpLabel" style="display: block;">
+        <h2 id="SignUpLabel" style="display: none;">
             Sign Up
         </h2>
 
+        <div style="text-align: center; margin-top: -2em; margin-bottom: 2em;">
+            <button onclick="toggleLoginMode(0)">
+                Login
+            </button>
+
+            <button onclick="toggleLoginMode(1)">
+                Sign Up
+            </button>
+        </div>
+
         <h3>Username</h3>
-        <input type="text">
+        <input id="Username" type="text">
 
         <h3>Password</h3>
         <div style="margin: auto; display: block; text-align: center;">
@@ -53,9 +63,12 @@
             <img onclick="togglePasswordVisibility()" id = "PasswordEye" src="images/EyeClose.png" style="width: 2.5em; margin-left: 0.4em; cursor: pointer;"> 
         </div>
        <div style="margin: auto; text-align:center">
-        <button>
-            Login
-            
+            <button id="LoginButton" onclick="login()" style="display: inline;">
+                Continue
+            </button>
+        
+            <button id="SignUpButton" onclick="createAccount()" style="display: none;">
+                Create Account
            </button>
        </div>
         <div style="text-align: center;">
@@ -90,12 +103,12 @@
                     <div style="display: flex; flex-wrap: wrap;">
                         <div style="flex: 1; margin-bottom: 2em;">
                             <img src="images/Moksh.png" style="display: inline;">
-                            <a style="display: block; margin-top: 0.5em;">LinkedIn</a>
+                            <a href="https://www.linkedin.com/in/moksh-patel-10b499285/" style="display: block; margin-top: 0.5em;">LinkedIn</a>
                         </div>
                         
                         <div style="flex: 1; margin-bottom: 2em;">
                             <img src="images/MokshGit.png" style="display: inline;">
-                            <a style="display: block; margin-top: 0.5em;">GitHub</a>
+                            <a href="https://github.com/mokshp19" style="display: block; margin-top: 0.5em;">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -106,12 +119,12 @@
                     <div style="display: flex; flex-wrap: wrap;">
                         <div style="flex: 1; margin-bottom: 2em;">
                             <img src="images/VincentTsengLinkedIn.png" style="display: inline;">
-                            <a style="display: block; margin-top: 0.5em;">LinkedIn</a>
+                            <a href="https://www.linkedin.com/in/vincent-tseng-ca/" style="display: block; margin-top: 0.5em;">LinkedIn</a>
                         </div>
                         
                         <div style="flex: 1; margin-bottom: 2em;">
                             <img src="images/VincentTsengGitHub.png" style="display: inline;">
-                            <a style="display: block; margin-top: 0.5em;">GitHub</a>
+                            <a href="https://github.com/VincentTsengCA" style="display: block; margin-top: 0.5em;">GitHub</a>
                         </div>
                     </div>
                 </div>
