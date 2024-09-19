@@ -8,6 +8,10 @@ const loginScrollDestinationY = 650;
 let accounts = [{ Username : "Admin", Password : "password" }];
 let currentAccount = {};
 
+if (localStorage.getItem("Accounts") != null) {
+    accounts = localStorage.getItem("Accounts");
+}
+
 const LOGIN_MODES = {
     LOGIN : 0,
     SIGNUP : 1
@@ -80,25 +84,47 @@ function toggleLoginMode(loginMode = null) {
     }
 }
 
-function login() {
-    window.location.href = "bank.html";
+function login(username = usernameInput.value, password = passwordInput.value) {
+    let accountFound = false;
+    
+    accounts.forEach(account => {
+        if (account.Username == username && account.Password == password) {
+            currentAccount = account;
+            accountFound = true;
+            window.location.href = "bank.html";
+            return;
+        }
+    });
+
+    if (!accountFound) {
+        alert("Username or password is incorrect.");
+    }
 }
 
 function createAccount(username = usernameInput.value, password = passwordInput.value){
+    let accountValid = true;
+    
     if (username.trim() == "" || password.trim() == "") {
+        accountValid = false;
         alert("No username or password is entered.");
         return;
     }
     
     accounts.forEach(account => {
         if (account.Username == username) {
+            accountValid = false;
             alert("Username already exists.");
             return;
         }
     });
 
-    accounts.push({ Username : username, Password : password });
-    localStorage.setItem("Accounts", JSON.stringify(accounts));
+    if (accountValid) {
+        accounts.push({ Username : username, Password : password });
+        localStorage.setItem("Accounts", JSON.stringify(accounts));
+        window.location.href = "bank.html";
+    }
+}
 
-    window.location.href = "bank.html";
+function removeAccount(accountToDelete = currentAccount) {
+    
 }
