@@ -168,3 +168,18 @@ function getFormattedMoneyString(money = 0.00) {
 
     return formattedMoneyString;
 }
+function Deposit(){
+    let addition = prompt("Enter the amount to deposit: ", "0")
+    if (!isNaN(addition))
+    {
+        currentAccount.Balance += addition; 
+    }
+    else{
+        alert("Invalid Input, please try again.")
+    }
+}
+
+function Withdraw(){
+
+}
+
