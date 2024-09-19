@@ -12,6 +12,10 @@ if (localStorage.getItem("Accounts") != null) {
     accounts = JSON.parse(localStorage.getItem("Accounts"));
 }
 
+if (sessionStorage.getItem("CurrentAccount") != null) {
+    currentAccount = JSON.parse(sessionStorage.getItem("CurrentAccount"));
+}
+
 const LOGIN_MODES = {
     LOGIN : 0,
     SIGNUP : 1
