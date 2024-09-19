@@ -17,7 +17,7 @@ if (sessionStorage.getItem("CurrentAccount") != null && document.getElementById(
     
     document.getElementById("accountno").innerHTML = "Account #: " + currentAccount.AccountNo; 
     document.getElementById("accounttype").innerHTML = "Account Type: " +currentAccount.AccountType;
-    document.getElementById("balance").innerHTML = "Balance: $" +currentAccount.Balance.toString();
+    document.getElementById("balance").innerHTML = "Balance: $" + getFormattedMoneyString(currentAccount.Balance);
 }
 
 const LOGIN_MODES = {
@@ -152,4 +152,19 @@ function logout() {
     alert("You have successfully logged out!");
 }
 
+function getFormattedMoneyString(money = 0.00) {
+    let formattedMoneyString = "";
+    let numberOfDigitsUntilComma = 3;
 
+    for (let i = money.toString().length - 1; i > -1; i--) {
+        if (numberOfDigitsUntilComma == 0 && i != 0) {
+            formattedMoneyString = "," + formattedMoneyString;
+            numberOfDigitsUntilComma = 3;
+        }
+
+        formattedMoneyString = money.toString()[i] + formattedMoneyString;
+        numberOfDigitsUntilComma--;
+    }
+
+    return formattedMoneyString;
+}
