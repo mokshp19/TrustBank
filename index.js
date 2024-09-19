@@ -3,13 +3,13 @@
 const usernameInput = document.getElementById("Username");
 const passwordInput = document.getElementById("Password");
 const passwordEye = document.getElementById("PasswordEye");
-const loginScrollDestinationY = 650; 
+const loginScrollDestinationY = 700; 
 
 let accounts = [{ Username : "Admin", Password : "password" }];
 let currentAccount = {};
 
 if (localStorage.getItem("Accounts") != null) {
-    accounts = localStorage.getItem("Accounts");
+    accounts = JSON.parse(localStorage.getItem("Accounts"));
 }
 
 const LOGIN_MODES = {
@@ -19,18 +19,6 @@ const LOGIN_MODES = {
 let currentLoginMode = LOGIN_MODES.LOGIN;
 
 function scrollToLogin(newLoginMode = null) {
-    // if (document.documentElement.scrollTop <= 650) {
-    //     window.scrollTo(0, document.documentElement.scrollTop + 10);
-    // }
-
-    // else if (document.documentElement.scrollTop > 650) {
-    //     window.scrollTo(0, document.documentElement.scrollTop - 10);
-    // }
-
-    // if (document.documentElement.scrollTop != 650) {
-    //     setTimeout(login, 1)
-    // }
-    
     window.scrollTo(0, loginScrollDestinationY);
 
     if (newLoginMode != null) {
@@ -119,7 +107,9 @@ function createAccount(username = usernameInput.value, password = passwordInput.
     });
 
     if (accountValid) {
-        accounts.push({ Username : username, Password : password });
+        let newAccount = { Username : username, Password : password };
+        accounts.push(newAccount);
+        currentAccount = newAccount;
         localStorage.setItem("Accounts", JSON.stringify(accounts));
         window.location.href = "bank.html";
     }
@@ -127,4 +117,10 @@ function createAccount(username = usernameInput.value, password = passwordInput.
 
 function removeAccount(accountToDelete = currentAccount) {
     
+}
+
+function logout() {
+    currentAccount = {};
+    window.location.href = "index.html";
+    alert("You have successfully logged out!");
 }
