@@ -136,7 +136,7 @@
 
 .ExchangeBar {
     height: 40em;
-    background-color: lightgreen;
+    background-color: rgb(197, 230, 197);
     border-radius: 4em;
     flex: 1;
     margin-right: 4em;
