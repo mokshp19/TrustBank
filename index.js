@@ -12,8 +12,11 @@ if (localStorage.getItem("Accounts") != null) {
     accounts = JSON.parse(localStorage.getItem("Accounts"));
 }
 
-if (sessionStorage.getItem("CurrentAccount") != null) {
+if (sessionStorage.getItem("CurrentAccount") != null && window.location.href == "bank.html") {
     currentAccount = JSON.parse(sessionStorage.getItem("CurrentAccount"));
+    document.getElementById("accountno").innerHTML = currentAccount.AccountNo; 
+    document.getElementById("accounttype").innerHTML = currentAccount.AccountType;
+    document.getElementById("balance").innerHTML = currentAccount.Balance.toString();
 }
 
 const LOGIN_MODES = {
@@ -83,6 +86,7 @@ function login(username = usernameInput.value, password = passwordInput.value) {
         if (account.Username == username && account.Password == password) {
             currentAccount = account;
             accountFound = true;
+            sessionStorage.setItem("CurrentAccount", JSON.stringify(currentAccount))
             window.location.href = "bank.html";
             return;
         }
@@ -136,10 +140,7 @@ function login(username = usernameInput.value, password = passwordInput.value) {
         window.location.href = "bank.html";
      
         
-        // document.getElementById("accountno").innerHTML = accountnum; 
-        // document.getElementById("accounttype").innerHTML = accounttype;
         
-        // document.getElementById("balance").innerHTML = newAccount.Balance.toString();
     }
 }
 
