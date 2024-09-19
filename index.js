@@ -12,11 +12,12 @@ if (localStorage.getItem("Accounts") != null) {
     accounts = JSON.parse(localStorage.getItem("Accounts"));
 }
 
-if (sessionStorage.getItem("CurrentAccount") != null && window.location.href == "bank.html") {
+if (sessionStorage.getItem("CurrentAccount") != null && document.getElementById("accountno") != null) {
     currentAccount = JSON.parse(sessionStorage.getItem("CurrentAccount"));
-    document.getElementById("accountno").innerHTML = currentAccount.AccountNo; 
-    document.getElementById("accounttype").innerHTML = currentAccount.AccountType;
-    document.getElementById("balance").innerHTML = currentAccount.Balance.toString();
+    
+    document.getElementById("accountno").innerHTML = "Account #: " + currentAccount.AccountNo; 
+    document.getElementById("accounttype").innerHTML = "Account Type: " +currentAccount.AccountType;
+    document.getElementById("balance").innerHTML = "Balance: $" +currentAccount.Balance.toString();
 }
 
 const LOGIN_MODES = {
@@ -86,7 +87,7 @@ function login(username = usernameInput.value, password = passwordInput.value) {
         if (account.Username == username && account.Password == password) {
             currentAccount = account;
             accountFound = true;
-            sessionStorage.setItem("CurrentAccount", JSON.stringify(currentAccount))
+            sessionStorage.setItem("CurrentAccount", JSON.stringify(currentAccount));
             window.location.href = "bank.html";
             return;
         }
@@ -119,7 +120,7 @@ function login(username = usernameInput.value, password = passwordInput.value) {
         let accountnum = ""
         for (let i = 0; i < 10; i++)
         {
-            accountnum += (Math.random() * 10).toString()
+            accountnum += (Math.floor(Math.random() * 10)).toString()
         }
 
         let accounttype = ""; 
@@ -128,19 +129,16 @@ function login(username = usernameInput.value, password = passwordInput.value) {
             accounttype = "Chequing"; 
         }
         else{
-            accounttype = "savings";
+            accounttype = "Savings";
         }
 
         
-        let newAccount = { Username : username, Password : password, AccountNo : accountnum, AccountType: accounttype, Balance: Math.random() * 1000000};
+        let newAccount = { Username : username, Password : password, AccountNo : accountnum, AccountType: accounttype, Balance: Math.floor(Math.random() * 1000000) };
         accounts.push(newAccount); 
         currentAccount = newAccount;
         localStorage.setItem("Accounts", JSON.stringify(accounts));
         sessionStorage.setItem("CurrentAccount", JSON.stringify(currentAccount))
         window.location.href = "bank.html";
-     
-        
-        
     }
 }
 
