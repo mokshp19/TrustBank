@@ -5,7 +5,7 @@ const passwordInput = document.getElementById("Password");
 const passwordEye = document.getElementById("PasswordEye");
 const loginScrollDestinationY = 700; 
 
-let accounts = [{ Username : "Admin", Password : "password" }];
+let accounts = [{ Username : "Admin", Password : "password", AccountNo : "", AccountType: "", Balance: 0.00}];
 let currentAccount = {};
 
 if (localStorage.getItem("Accounts") != null) {
@@ -89,7 +89,7 @@ function login(username = usernameInput.value, password = passwordInput.value) {
     }
 }
 
-function createAccount(username = usernameInput.value, password = passwordInput.value){
+ function createAccount(username = usernameInput.value, password = passwordInput.value){
     let accountValid = true;
     
     if (username.trim() == "" || password.trim() == "") {
@@ -103,15 +103,39 @@ function createAccount(username = usernameInput.value, password = passwordInput.
             accountValid = false;
             alert("Username already exists.");
             return;
+
         }
     });
 
     if (accountValid) {
-        let newAccount = { Username : username, Password : password };
-        accounts.push(newAccount);
+        let accountnum = ""
+        for (let i = 0; i < 10; i++)
+        {
+            accountnum += (Math.random() * 10).toString()
+        }
+
+        let accounttype = ""; 
+
+        if (Math.random() == 0){
+            accounttype = "Chequing"; 
+        }
+        else{
+            accounttype = "savings";
+        }
+
+        
+        let newAccount = { Username : username, Password : password, AccountNo : accountnum, AccountType: accounttype, Balance: Math.random() * 1000000};
+        accounts.push(newAccount); 
         currentAccount = newAccount;
         localStorage.setItem("Accounts", JSON.stringify(accounts));
+        sessionStorage.setItem("CurrentAccount", JSON.stringify(currentAccount))
         window.location.href = "bank.html";
+     
+        
+        // document.getElementById("accountno").innerHTML = accountnum; 
+        // document.getElementById("accounttype").innerHTML = accounttype;
+        
+        // document.getElementById("balance").innerHTML = newAccount.Balance.toString();
     }
 }
 
@@ -124,3 +148,5 @@ function logout() {
     window.location.href = "index.html";
     alert("You have successfully logged out!");
 }
+
+

@@ -126,7 +126,7 @@
 }
 
 .DepositBar {
-    height: 40em;
+    height: 30em;
     background-color: lightgoldenrodyellow;
     border-radius: 4em;
     flex: 1;
@@ -135,7 +135,7 @@
 }
 
 .ExchangeBar {
-    height: 40em;
+    height: 30em;
     background-color: rgb(197, 230, 197);
     border-radius: 4em;
     flex: 1;
