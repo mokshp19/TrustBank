@@ -215,3 +215,23 @@ function Withdraw(){
     }
 }
 
+async function Exchange(){
+
+    try{
+        const response = await fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json")
+        // const response = await fetch("https://latest.currency-api.pages.dev/v1/currencies/cad.json"); 
+
+        if (!response.ok){
+            throw new Error("Could not fetch resource"); 
+
+        }
+        const data = await response.json(); 
+        console.log(data); 
+    }
+    catch(error){
+        console.error(error); 
+    }
+
+}
+Exchange(); 
+
