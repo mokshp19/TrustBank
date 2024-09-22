@@ -156,7 +156,7 @@ function getFormattedMoneyString(money = 0.00) {
     let formattedMoneyString = "";
     let numberOfDigitsUntilComma = 3;
 
-    for (let i = money.toString().length - 1; i > -1; i--) {
+    for (let i = money.toFixed(2).length - 4; i > -1; i--) {
         if (numberOfDigitsUntilComma == 0 && i != 0) {
             formattedMoneyString = "," + formattedMoneyString;
             numberOfDigitsUntilComma = 3;
@@ -166,7 +166,7 @@ function getFormattedMoneyString(money = 0.00) {
         numberOfDigitsUntilComma--;
     }
 
-    return formattedMoneyString;
+    return formattedMoneyString + (parseFloat(money.toFixed(2)) - Math.floor(parseFloat(money.toFixed(2)))).toFixed(2).substring(1);
 }
 
 function Deposit(){
@@ -174,7 +174,7 @@ function Deposit(){
     if (!isNaN(addition) && addition != null) {
         accounts.forEach(account => {
             if (account.Username == currentAccount.Username) {
-                account.Balance += parseFloat(addition).toFixed(2); 
+                account.Balance += parseFloat(addition); 
                 currentAccount = account;
 
                 localStorage.setItem("Accounts", JSON.stringify(accounts));
@@ -195,7 +195,7 @@ function Withdraw(){
         accounts.forEach(account => {
             if (account.Username == currentAccount.Username) {
                 if (account.Balance - parseFloat(subtraction) >= 0.0) {
-                    account.Balance -= parseFloat(subtraction).toFixed(2); 
+                    account.Balance -= parseFloat(subtraction); 
                     currentAccount = account;
 
                     localStorage.setItem("Accounts", JSON.stringify(accounts));
@@ -236,7 +236,7 @@ async function exchange() {
             let fromValueNum = parseFloat(fromValue);
             let toValueNum = parseFloat(toValue);
 
-            document.getElementById("fromValue").value = fromValueNum.toFixed(2).toString();
+            document.getElementById("fromValue").value = fromValueNum.toFixed(2);
             document.getElementById("toValue").value = (fromValueNum * currencyData[fromCurrency][toCurrency]).toFixed(2).toString();
         }
     }
