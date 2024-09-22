@@ -168,18 +168,50 @@ function getFormattedMoneyString(money = 0.00) {
 
     return formattedMoneyString;
 }
+
 function Deposit(){
     let addition = prompt("Enter the amount to deposit: ", "0")
-    if (!isNaN(addition))
-    {
-        currentAccount.Balance += addition; 
+    if (!isNaN(addition) && addition != null) {
+        accounts.forEach(account => {
+            if (account.Username == currentAccount.Username) {
+                account.Balance += parseFloat(addition); 
+                currentAccount = account;
+
+                localStorage.setItem("Accounts", JSON.stringify(accounts));
+                sessionStorage.setItem("CurrentAccount", JSON.stringify(currentAccount));
+
+                document.getElementById("balance").innerHTML = "Balance: $" + getFormattedMoneyString(currentAccount.Balance);
+            }
+        });
     }
     else{
-        alert("Invalid Input, please try again.")
+        alert("Invalid input, please try again.")
     }
 }
 
 function Withdraw(){
+    let subtraction = prompt("Enter the amount to withdraw: ", "0")
+    if (!isNaN(subtraction) && subtraction != null) {
+        accounts.forEach(account => {
+            if (account.Username == currentAccount.Username) {
+                if (account.Balance - parseFloat(subtraction) >= 0.0) {
+                    account.Balance -= parseFloat(subtraction); 
+                    currentAccount = account;
 
+                    localStorage.setItem("Accounts", JSON.stringify(accounts));
+                    sessionStorage.setItem("CurrentAccount", JSON.stringify(currentAccount));
+
+                    document.getElementById("balance").innerHTML = "Balance: $" + getFormattedMoneyString(currentAccount.Balance);
+                }
+
+                else {
+                    alert("You are withdrawing more than your balance has, please try again.");
+                }
+            }
+        });
+    }
+    else{
+        alert("Invalid input, please try again.")
+    }
 }
 
