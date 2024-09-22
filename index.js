@@ -229,7 +229,7 @@ async function Exchange(){
         console.log(data); 
     }
     catch(error){
-        console.error(error); 
+        alert(error); 
     }
 
 }
