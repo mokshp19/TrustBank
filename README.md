@@ -1,5 +1,6 @@
 # TrustBank Mock Website
-
+**By Moksh and Vincent**
+[https://mokshp19.github.io/TrustBank/](https://mokshp19.github.io/TrustBank/)
 
 ## Contents
 - [**Description**](#description)
