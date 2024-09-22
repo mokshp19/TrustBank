@@ -56,7 +56,7 @@
             </h3>
 
             <div style="text-align: center;margin-bottom: 3em;">
-                <select name="From" id="from">
+                <select name="From" id="from" onchange="exchange()">
                             <option id="cad">CAD</option>
                             <option id="usd">USD</option>
                             <option id="eur">EUR</option>
@@ -79,7 +79,7 @@
                     <div style="text-align: center;">
 
                     
-                    <input id = "fromValue" type="text">
+                    <input id = "fromValue" type="text" onchange="exchange()" placeholder="0.00">
 
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                 To: 
             </h3>
             <div style="text-align: center; margin-bottom: 3em">
-            <select name="To" id="to">
+            <select name="To" id="to" onchange="exchange()">
                             <option id="usd">USD</option>
                             <option id="cad">CAD</option>
                             <option id="eur">EUR</option>
@@ -111,7 +111,7 @@
                     <div style="text-align: center;">
 
                     
-                        <input id = "toValue" type="text">
+                        <input id = "toValue" type="text" onchange="exchange()" placeholder="0.00">
     
                         </div>
                 </div>

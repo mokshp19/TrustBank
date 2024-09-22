@@ -174,7 +174,7 @@ function Deposit(){
     if (!isNaN(addition) && addition != null) {
         accounts.forEach(account => {
             if (account.Username == currentAccount.Username) {
-                account.Balance += parseFloat(addition); 
+                account.Balance += parseFloat(addition).toFixed(2); 
                 currentAccount = account;
 
                 localStorage.setItem("Accounts", JSON.stringify(accounts));
@@ -195,7 +195,7 @@ function Withdraw(){
         accounts.forEach(account => {
             if (account.Username == currentAccount.Username) {
                 if (account.Balance - parseFloat(subtraction) >= 0.0) {
-                    account.Balance -= parseFloat(subtraction); 
+                    account.Balance -= parseFloat(subtraction).toFixed(2); 
                     currentAccount = account;
 
                     localStorage.setItem("Accounts", JSON.stringify(accounts));
@@ -215,23 +215,35 @@ function Withdraw(){
     }
 }
 
-async function Exchange(){
+async function exchange() {
+    const fromCurrency = document.getElementById("from").options[document.getElementById("from").selectedIndex].id;
+    const toCurrency = document.getElementById("to").options[document.getElementById("to").selectedIndex].id;
 
-    try{
-        const response = await fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json")
-        // const response = await fetch("https://latest.currency-api.pages.dev/v1/currencies/cad.json"); 
+    const fromValue = document.getElementById("fromValue").value;
+    const toValue = document.getElementById("toValue").value;
 
-        if (!response.ok){
-            throw new Error("Could not fetch resource"); 
+    try {
+        // const response = await fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json")
+        const response = await fetch("https://latest.currency-api.pages.dev/v1/currencies/" + fromCurrency + ".json"); 
 
+        if (!response.ok) {
+            throw new Error("Could not fetch " + fromCurrency + " currency data, please try again."); 
         }
-        const data = await response.json(); 
-        console.log(data); 
+
+        const currencyData = await response.json();
+
+        if (fromValue.trim() != "" && !isNaN(fromValue)) {
+            let fromValueNum = parseFloat(fromValue);
+            let toValueNum = parseFloat(toValue);
+
+            document.getElementById("fromValue").value = fromValueNum.toFixed(2).toString();
+            document.getElementById("toValue").value = (fromValueNum * currencyData[fromCurrency][toCurrency]).toFixed(2).toString();
+        }
     }
+
     catch(error){
         alert(error); 
     }
 
 }
-Exchange(); 
 
